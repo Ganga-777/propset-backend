@@ -38,10 +38,13 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 // Routes
-app.use("http://localhost:8081/api/v1/auth", authRoutes);
-app.use("http://localhost:8081/api/v1/category", categoryRoutes);
-app.use("http://localhost:8081/api/v1/product", productRoutes);
+app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/category", categoryRoutes);
+app.use("/api/v1/product", productRoutes);
 
+app.get("/shit", (req, res) => {
+  res.send("hello world")
+})
 // Logging middleware
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.url}`);
@@ -68,7 +71,7 @@ app.use((err, req, res, next) => {
 });
 
 //PORT
-const PORT = process.env.PORT || 8081;
+const PORT = process.env.PORT;
 
 //run listen
 app.listen(PORT, () => {
