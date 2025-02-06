@@ -30,7 +30,7 @@ const app = express();
 
 //middlewares
 app.use(cors({
-  origin: ["http://localhost:3000"],
+  origin: ["https://cyber-desk-five.vercel.app/", "https://cyber-desk-five.vercel.app"],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
